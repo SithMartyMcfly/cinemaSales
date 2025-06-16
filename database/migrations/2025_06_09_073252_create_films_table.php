@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('director');
             $table->string('actors');
             $table->string('genero');
-            $table->string('sinopsis');
+            $table->text('sinopsis');
             $table->string('poster')->nullable();
             $table->timestamps();
             
