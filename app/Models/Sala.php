@@ -9,4 +9,7 @@ class Sala extends Model
     public function sesions(){
         return $this->hasMany(Funcion::class);
     }
+    public function seat (){
+        return $this->hasMany(Seat::class);
+    }
 }

@@ -26,8 +26,8 @@ Route::resource('films', FilmController::class);
 Route::get('/lineup', [CompraEntradasController::class])//vista de películas
         ->name('lineup');
 
-Route::get('/lineup/{sesion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
+Route::get('/lineup/{funcion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
         ->name('lineup.chooseSeat');
 
-Route::get('lineup/{sesion}/chooseSeat/buy', [CompraEntradasController::class])//confirmación de compra
+Route::get('lineup/{funcion}/chooseSeat/buy', [CompraEntradasController::class])//confirmación de compra
         ->name('lineup.chooseSeat.buy');

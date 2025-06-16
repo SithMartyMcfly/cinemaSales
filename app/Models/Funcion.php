@@ -16,5 +16,8 @@ class Funcion extends Model
         return $this->belongsTo(Films::class);
     }
     
+    public function seat(){
+        return $this->hasMany(Seat::class);
+    }
     //
 }
