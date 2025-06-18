@@ -14,5 +14,9 @@ class Films extends Model
     public function seat(){
         return $this->hasMany(Seat::class);
     }
+
+    public function salas () {
+        return $this->hasManyThrough(Sala::class, Funcion::class, 'film_id', 'id', 'id', 'sala_id');
+    }
 }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Films;
+use App\Models\Funcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
@@ -77,18 +78,19 @@ public function store(Request $request){
         return view('films.show', compact('film'));
     }
 
-    //CAMBIAR EL MÉTODO PORQUE ESTE ES EL QUE RECUPERA LAS SESIONES QUE TIENEN PROGRAMADAS LAS PELÍCULAS
-    //Todo:
+
 public function index() {
     // 🔹 Obtener todas las películas desde la base de datos
     $films = Films::all();
     return view('films.index', compact('films'));
 }
+
+//peliculas en cartelera
+//todo:
 public function lineup() {
-    // 🔹 Obtener todas las películas desde la base de datos
-    $films = Films::whereHas('funcions', function ($query) {
-    $query->whereColumn('films.id', 'funcions.film_id'); // ✅ Usa 'film_id', que es la columna correcta
-})->get();
+    
+    // 🔹 Obtener todas las películas que tienen sesiones desde la base de datos
+    $films = Films::with('funcions.sala')->whereHas('funcions')->get();
 
     
     foreach ($films as $film) {

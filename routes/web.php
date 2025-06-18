@@ -24,7 +24,7 @@ Route::resource('films', FilmController::class);
 
 
 // COMPRA ENTRADAS
-Route::get('/lineup', [FilmController::class, 'lineup'])//vista de películas
+Route::get('/lineup', [FilmController::class, 'lineup'])//vista de películas en cartelera
         ->name('lineup.index');
 
 Route::get('/lineup/{funcion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
