@@ -22,9 +22,10 @@ Route::resource('sessions', FuncionController::class);//administración sesiones
 
 Route::resource('films', FilmController::class);
 
+
 // COMPRA ENTRADAS
-Route::get('/lineup', [CompraEntradasController::class])//vista de películas
-        ->name('lineup');
+Route::get('/lineup', [FilmController::class, 'lineup'])//vista de películas
+        ->name('lineup.index');
 
 Route::get('/lineup/{funcion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
         ->name('lineup.chooseSeat');

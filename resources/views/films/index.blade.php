@@ -22,5 +22,11 @@
     
     @endforeach
 </ul>
+
+<x-indexButtons>
+    <x-slot name="ruta">films</x-slot>
+    <x-slot name="nombreBoton">Crear Película</x-slot>
+</x-indexButtons>
+
     
 @endsection

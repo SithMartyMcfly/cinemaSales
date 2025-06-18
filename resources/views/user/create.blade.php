@@ -14,10 +14,17 @@
                 <input type="text" name="surename" id="surename" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
                 <label for="name">E-mail:</label>
                 <input type="email" name="email" id="email" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
+                <label for="name">Fecha Nacimiento:</label>
+                <input type="date" name="bornDate" id="bornDate" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
                 <label for="name">Password:</label>
                 <input type="password" name="password" id="password" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
-                <button type="submit" class="bg-blue-300 text-black rounded-full mt-8 mb-8 ml-40 mr-40">Enviar</button>
-        </div>
+                <button type="submit" class="bg-blue-300 text-black rounded-md p-1 mt-4">Enviar</button>
+            </div>
         </form>
+        <x-backButton>
+            <x-slot name="ruta">
+                user
+            </x-slot>
+        </x-backButton>
     </div>
 @endsection

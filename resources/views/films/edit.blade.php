@@ -18,9 +18,26 @@
         <label for="">Sinopsis:</label>
         <textarea name="sinopsis" id="" cols="8" rows="5" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">{{old('sinopsis', $film->sinopsis)}}</textarea>
         <label for="">Poster:</label>
-        <input type="file" name="poster" id="name" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5"> 
+        <input type="file" name="poster" id="name" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
+        <label for="">Duración</label>
+        <input type="number" name="duracion" id="duracion" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5" value="{{old('duracion', $film->duracion)}}">
+        <label for="">Calificación</label>
+        <select name="calificacion" id="" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
+            @foreach ($calificaciones as $calificacion)     
+            <option value="{{$calificacion}}">
+                @if (old('calificacion', $film->calificacion) == $calificacion)  ->
+                @endif
+            {{ $calificacion }}
+            </option>
+            @endforeach
+        </select> 
         <button type="submit" class="bg-blue-300 text-black rounded-full mt-8 mb-8 ml-40 mr-40">Editar Película</button>   
     </div>
 </form>
+<x-backButton>
+    <x-slot name="ruta">
+        films
+    </x-slot>
+</x-backButton>
     
 @endsection

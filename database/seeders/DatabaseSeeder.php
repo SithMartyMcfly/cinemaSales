@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             FilmSeeder::class,
             SalaSeeder::class,
             SeatSeeder::class,
+            SessionSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

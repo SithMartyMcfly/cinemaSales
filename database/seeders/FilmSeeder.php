@@ -15,27 +15,33 @@ class FilmSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        $film = new Films();
 
-        $film->name = 'Misión Imposible'; 
+        $film = new Films();
+        $film->name = 'Acorralado'; 
         $film->director = $faker->name(); 
         $film->actors = implode(', ', [$faker->name(), $faker->name(), $faker->name()]); 
         $film->genero = $faker->word(); 
-        $film->sinopsis = $faker->name();
+        $film->sinopsis = $faker->sentence();
+        $film->duracion = 97;
+        $film->calificacion = '+18';
         $film->save();
         $film = new Films();
-        $film->name = 'Roma'; 
+        $film->name = 'Gladiator'; 
         $film->director = $faker->name(); 
         $film->actors = implode(', ', [$faker->name(), $faker->name(), $faker->name()]); 
         $film->genero = $faker->word(); 
-        $film->sinopsis = $faker->name();
+        $film->sinopsis = $faker->sentence();
+        $film->duracion = 155;
+        $film->calificacion = '+16';
         $film->save();
         $film = new Films();
         $film->name = 'Matrix'; 
         $film->director = $faker->name(); 
         $film->actors = implode(', ', [$faker->name(), $faker->name(), $faker->name()]); 
         $film->genero = $faker->word(); 
-        $film->sinopsis = $faker->name();
+        $film->sinopsis = $faker->sentence();
+        $film->duracion = 136;
+        $film->calificacion = '+12';
         $film->save();
 
 

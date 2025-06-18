@@ -5,5 +5,6 @@
         <a href="{{route('user.index')}}" class="bg-blue-600 text-white mb-5 hover:bg-blue-200 hover:text-black">Administrar usuarios</a>
         <a href="{{route('films.index')}}" class="bg-blue-600 text-white mb-5  hover:bg-blue-200 hover:text-black">Administrar Películas</a>
         <a href="{{route('sessions.index')}}" class="bg-blue-600 text-white mb-5  hover:bg-blue-200 hover:text-black">Administrar Sesiones</a>
+        <a href="{{route('lineup.index')}}" class="bg-blue-600 text-white mb-5  hover:bg-blue-200 hover:text-black">Ver Cartelera</a>
     </div>
 @endsection

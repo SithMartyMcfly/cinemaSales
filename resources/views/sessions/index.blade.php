@@ -70,19 +70,28 @@
         @endforeach
         <div class="w-full h-0.5 bg-black mb-1.5"></div>
     </ul>
+    <x-index-buttons>
+        <x-slot name="ruta">
+            sessions
+        </x-slot>
+        <x-slot name="nombreBoton">
+            Crear Sesión
+        </x-slot>
+    </x-index-buttons>
     @endsection
- 
+
     
-<script>
-    window.onload =  function() {
-        document.getElementById('btn1').addEventListener('click', function () {
+    
+    <script>
+        window.onload =  function() {
+            document.getElementById('btn1').addEventListener('click', function () {
             document.querySelectorAll('.sala1').forEach(div=>div.classList.toggle('hidden'));
         });
 
         document.getElementById('btn2').addEventListener('click', function () {
             document.querySelectorAll('.sala2').forEach(div=>div.classList.toggle('hidden'));
         });
-
+        
         document.getElementById('btn3').addEventListener('click', function () {
             document.querySelectorAll('.sala3').forEach(div=>div.classList.toggle('hidden'));
         });

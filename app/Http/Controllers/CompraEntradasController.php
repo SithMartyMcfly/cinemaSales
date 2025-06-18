@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Films;
 
 class CompraEntradasController extends Controller
 {
     //vista de cartelera
 
     public function index(){
-        return view('views.lineup');
+        $films=Films::all();
+        return view('lineup.index', compact('films'));
     }
 
     //eleccion de sesión

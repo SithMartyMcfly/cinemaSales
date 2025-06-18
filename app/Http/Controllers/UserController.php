@@ -19,6 +19,7 @@ class UserController extends Controller
         $user->surename = $request->surename;
         $user->email = $request->email;
         $user->password = $request->password;
+        $user->bornDate = $request->bornDate;
 
         $user->save();
         return redirect()->route('user.index');
@@ -42,6 +43,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->surename = $request->surename;
         $user->email = $request->email;
+        $user->bornDate = $request->bornDate;
         $user->save();
         return redirect()->route('user.index');
     }

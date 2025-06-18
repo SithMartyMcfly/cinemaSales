@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+<legend class="text-center text text-3xl text-bolder mt-12 mb-6 underline">Editar Sesión</legend>
+
 <form action="{{route('sessions.update', $sesion)}}" method="POST" class="text-start ml-100 mr-100 text-xl">
     @csrf
     @method('PUT')
@@ -29,10 +31,13 @@
         </option>
     @endforeach
 </select>
-
-    
         <button type="submit" class="bg-blue-300 rounded-md mt-4 p-1 ml-30 mr-30">Guardar Cambios</button>
     </div>
 </form>
+<x-backButton>
+    <x-slot name="ruta">
+        sessions
+    </x-slot>
+</x-backButton>
     
 @endsection

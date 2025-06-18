@@ -29,7 +29,12 @@
                     @endforeach
                 </select>
                 <button type="submit" class="bg-blue-300 text-black rounded-full mt-8 mb-8 ml-40 mr-40">Enviar</button>
-        </div>
-    </form>
-    
+            </div>
+        </form>
+        <x-backButton>
+            <x-slot name="ruta">
+                sessions
+            </x-slot>
+        </x-backButton>
+        
 @endsection

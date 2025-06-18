@@ -18,5 +18,11 @@
         </div>
     </li>
     @endforeach
-</ol>  
+</ol>
+<hr class="mb-5">
+<x-index-buttons>
+    <x-slot name="ruta">user</x-slot>
+    <x-slot name="nombreBoton">Crear Usuario</x-slot>
+</x-index-buttons>
+
 @endsection
