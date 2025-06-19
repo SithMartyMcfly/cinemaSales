@@ -15,4 +15,14 @@ class Seat extends Model
     public function sala (){
         return $this->belongsTo(Sala::class);
     } 
+
+    
+    protected $fillable = [
+        'funcion_id',
+        'film_id',
+        'sala_id',
+        'seat_number',
+        'isOccupied',
+    ];
+
 }

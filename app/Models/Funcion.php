@@ -35,10 +35,14 @@ class Funcion extends Model
             for ($i = 1; $i <= $sala->capacity; $i++) {
                 Seat::create([
                     'funcion_id' => $this->id,
-                    'number' => $i,
-                    'isOccupied' => false
+                    'seat_number' => $i,
+                    'isOccupied' => false,
+                    'film_id' => $this->film_id,
+                    'sala_id' => $this->sala_id
                 ]);
             }
         }
     }
+
+    //para que se generen los asientos llamando a la función debemos pemirtir asignación masiva
 }
