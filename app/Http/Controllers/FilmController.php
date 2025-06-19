@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Films;
 use App\Models\Funcion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 
 class FilmController extends Controller
 {
     //crear película
     public function create(){
+        //recojo los valores del campo enum
         $enumValores = DB::select("SHOW COLUMNS FROM FILMS LIKE 'calificacion'")[0]->Type;
         preg_match("/enum\((.*)\)$/", $enumValores, $matches);
         $calificaciones = explode(",", str_replace("'","", $matches[1]));
@@ -84,28 +84,6 @@ public function index() {
     $films = Films::all();
     return view('films.index', compact('films'));
 }
-
-//peliculas en cartelera
-//todo:
-public function lineup() {
-    
-    // 🔹 Obtener todas las películas que tienen sesiones desde la base de datos
-    $films = Films::with('funcions.sala')->whereHas('funcions')->get();
-
-    
-    foreach ($films as $film) {
-        // 🔎 Llamar a la API para obtener la imagen de cada película
-        $response = Http::get("http://127.0.0.1:22049/api/search?query=" . urlencode($film->name));
-
-        if ($response->successful()) {
-            $film->image = $response->json()['image']; // ✅ Guardar la imagen en cada película
-        } else {
-            $film->image = "https://via.placeholder.com/150"; // 🔹 Imagen por defecto si falla
-        }
-    }
-    return view('lineup.index', compact('films'));
-}
-
     
     //borrar pelicula
     public function destroy(Films $film){

@@ -26,6 +26,9 @@ class FuncionController extends Controller
         $sesion->price = $request->price;
         $sesion->film_id = $request->film_id;
         $sesion->save();
+
+        $sesion->generarAsientos(); //estamos generando los asientos llamando al método del modelo
+
         return redirect()->route('sessions.index' );
     }
     //editar sesión

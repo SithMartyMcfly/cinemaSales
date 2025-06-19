@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Funcion;
 use App\Models\Sala;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,10 +13,16 @@ class SeatSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-
+/* 
     public function run(): void
     {
-        $salas = Sala::all();
+        $funciones = Funcion::with('sala')->get();
+
+        foreach ($funciones as $funcion){
+            $funcion = $funcion->sala;
+            
+        }
+        
 
         foreach($salas as $sala){
             for($i=1; $i<=$sala->capacity; $i++){
@@ -26,5 +33,6 @@ class SeatSeeder extends Seeder
                 $seat->save();
             }
         }
-    }
+    } */
 }
+

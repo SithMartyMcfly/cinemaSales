@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarteleraController;
 use App\Http\Controllers\CompraEntradasController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\UserController;
@@ -24,7 +25,7 @@ Route::resource('films', FilmController::class);
 
 
 // COMPRA ENTRADAS
-Route::get('/lineup', [FilmController::class, 'lineup'])//vista de películas en cartelera
+Route::get('/lineup', [CarteleraController::class, 'lineup'])//vista de películas en cartelera
         ->name('lineup.index');
 
 Route::get('/lineup/{funcion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
