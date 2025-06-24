@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->date('bornDate');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

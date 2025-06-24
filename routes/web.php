@@ -1,35 +1,52 @@
 <?php
 
-use App\Http\Controllers\CarteleraController;
-use App\Http\Controllers\CompraEntradasController;
-use App\Http\Controllers\FuncionController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FilmController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FuncionController;
+use App\Http\Controllers\CarteleraController;
+use App\Http\Controllers\CompraEntradasController;
+use App\Http\Controllers\SeatController;
 
-//PRINCIPAL
-Route::get('/', function () {//vista principal
-    return view('welcome');
-})->name('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-//REGISTRO DE USUARIOS
-Route::resource('user', UserController::class);//registro, muestra auto rutas index, show, create, update...
-        //->parameters(['user' => 'usuario']);
-        //->names('usuarios');
+Route::middleware('auth', 'isAdmin')->group(function ()  {
 
-//ADMINISTRACIÓN DE SESIONES
-Route::resource('sessions', FuncionController::class);//administración sesiones
-        //->names('salas');
+    Route::get('/', function () {//PRINCIPAL
+        return view('welcome');
+    })->name('welcome');
+    //Rutas proyecto
+    Route::resource('user', UserController::class); //gestión de USUARIOS
+    Route::resource('sessions', FuncionController::class); //gestión de SESIONES
+    Route::resource('films', FilmController::class); //gestión de PELICULAS
 
-Route::resource('films', FilmController::class);
-
-
-// COMPRA ENTRADAS
-Route::get('/lineup', [CarteleraController::class, 'lineup'])//vista de películas en cartelera
-        ->name('lineup.index');
-
-Route::get('/lineup/{funcion}/chooseSeat', [CompraEntradasController::class])//elección de sitio
+    
+    Route::get('/lineup/chooseSeat/{id}', [SeatController::class, 'choose'])//ELECCION SITIO
         ->name('lineup.chooseSeat');
+    
+    //Breeze
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('lineup/{funcion}/chooseSeat/buy', [CompraEntradasController::class])//confirmación de compra
-        ->name('lineup.chooseSeat.buy');
+Route::middleware('auth')->group (function (){
+     Route::get('/', function () {
+        return view('welcome');
+    })->name('welcome');
+    // COMPRA ENTRADAS
+    Route::get('/lineup', [CarteleraController::class, 'lineup'])//vista de películas en cartelera
+        ->name('lineup.index');
+    
+});
+
+//CON LA AUTENTIFICACIÓN BREEZE HACE FALTA UNA RUTA HOME
+ Route::get('/home', function () {
+    return redirect()->route('welcome');
+    })->name('home');
+ 
+
+require __DIR__.'/auth.php';
