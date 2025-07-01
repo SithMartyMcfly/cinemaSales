@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h2 class="text text-4xl mb-5">Cartelera</h2>https://www.estadiodeportivo.com/
+    <h2 class="text text-4xl mb-5">Cartelera</h2>
 
     @foreach ($dias as $dia)
         {{-- itero los días que hay sesión, una vez iterados hay que pasar como parámetro
@@ -17,7 +17,8 @@
         @foreach ($films as $film)
             <section class="flex flex-row mx-10 mt-4 border-1 p-2 w-full ">
                 <div>
-                    <img src="{{ $film['image'] }}" alt="{{ $film['title'] }}" class="w-100 h-140">
+                    
+                    <img src='{{ $film->poster }}' alt="Cartel de {{ $film->name }}" class="w-100 h-140">
                     <p class="text text-2xl"><strong>Título: </strong>{{ $film->name }}</p>
                     <p class="text text-2xl"><strong>Genero: </strong>{{ $film->genero }}</p>
                 </div>

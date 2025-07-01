@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('actors');
             $table->string('genero');
             $table->text('sinopsis');
+            $table->string('poster')->nullable();
             $table->integer('duracion');
             $table->enum('calificacion', ['Todos los Públicos', '+7', '+12', '+16', '+18', 'X']);
-            $table->timestamps();
-            
+            $table->timestamps(); 
         });
     }
 

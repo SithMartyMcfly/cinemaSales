@@ -24,6 +24,7 @@ class FilmSeeder extends Seeder
         $film->sinopsis = $faker->sentence();
         $film->duracion = 97;
         $film->calificacion = '+18';
+        $film->poster = '/storage/films/Acorralado.jpg';
         $film->save();
         $film = new Films();
         $film->name = 'Gladiator'; 
@@ -33,6 +34,7 @@ class FilmSeeder extends Seeder
         $film->sinopsis = $faker->sentence();
         $film->duracion = 155;
         $film->calificacion = '+16';
+        $film->poster = '/storage/films/Gladiator.jpg';
         $film->save();
         $film = new Films();
         $film->name = 'Matrix'; 
@@ -42,6 +44,7 @@ class FilmSeeder extends Seeder
         $film->sinopsis = $faker->sentence();
         $film->duracion = 136;
         $film->calificacion = '+12';
+        $film->poster = '/storage/films/Matrix.jpg';
         $film->save();
 
 

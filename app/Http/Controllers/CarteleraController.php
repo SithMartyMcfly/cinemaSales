@@ -38,6 +38,7 @@ class CarteleraController extends Controller
             'sinopsis',
             'duracion',
             'calificacion',
+            'poster'
         ])
 
             ->with([
@@ -56,16 +57,6 @@ class CarteleraController extends Controller
         //usamos la función días para llevar los dias a la vista
         $dias = $this->dias();
 
-        foreach ($films as $film) {
-            // 🔎 Llamar a la API para obtener la imagen de cada película
-            $response = Http::get("http://127.0.0.1:22049/api/search?query=" . urlencode($film->name));
-
-            if ($response->successful()) {
-                $film->image = $response->json()['image']; // ✅ Guardar la imagen en cada película
-            } else {
-                $film->image = "https://via.placeholder.com/150"; // 🔹 Imagen por defecto si falla
-            }
-        }
         return view('lineup.index', compact('films', 'dias'));
     }
 }

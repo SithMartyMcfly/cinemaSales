@@ -25,6 +25,8 @@
                         <option value="{{$calificacion}}">{{$calificacion}}</option>
                     @endforeach
         </select>
+        <label for="">Póster</label>
+        <input type="file" name="poster" id="poster" class="border-1 border-solid rounded-lg bg-blue-100 px-2 py-0.5">
         <button type="submit" class="bg-blue-300 text-black rounded-full mt-8 mb-8 ml-40 mr-40">Registrar Película</button>   
     </div>
 </form>
