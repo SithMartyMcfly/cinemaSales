@@ -26,7 +26,10 @@ Route::middleware('auth', 'isAdmin')->group(function ()  {
     
     Route::get('/lineup/chooseSeat/{id}', [SeatController::class, 'choose'])//ELECCION SITIO
         ->name('lineup.chooseSeat');
-    
+        
+    Route::post('/asientos/comprar', [SeatController::class, 'comprar'])->name('asientos.comprar');
+
+
     //Breeze
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -37,11 +40,12 @@ Route::middleware('auth')->group (function (){
      Route::get('/', function () {
         return view('welcome');
     })->name('welcome');
-    // COMPRA ENTRADAS
+    // VISTA CARTELERA
     Route::get('/lineup', [CarteleraController::class, 'lineup'])//vista de películas en cartelera
-        ->name('lineup.index');
-    
+        ->name('lineup.index');   
 });
+
+
 
 //CON LA AUTENTIFICACIÓN BREEZE HACE FALTA UNA RUTA HOME
  Route::get('/home', function () {

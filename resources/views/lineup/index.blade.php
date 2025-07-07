@@ -31,7 +31,7 @@
                         @endif
                         <div class="flex flex-row">
                         @foreach ($film->funcions as $funcion)
-                            <button class="mr-4 bg-green-300 p-1 rounded-md"><a href="{{route('lineup.chooseSeat', $funcion->id)}}">{{ $funcion->hour }}</a></button>
+                            <button class="mr-4 bg-green-300 p-1 rounded-md"><a href="{{route('lineup.chooseSeat', $funcion->id)}}">{{ $funcion->hour }}</a></button>{{-- estoy enviando la id de la funcion a chooseSeat --}}
                             @endforeach
                         </div>
                     </div>
